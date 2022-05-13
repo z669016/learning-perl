@@ -1,0 +1,7 @@
+This is a file to test some regular expressions;
+the first exercise is to print file mentioning fred;
+or, maybe just lines containing Fred, or Wilma;
+maybe lines mentioning "Mr. Fred" should be included as well;
+when a line contains the search term as part of another word,
+then that line should be ignored, like with Alfred, or Frederic;
+Wilma, Fred or fred should both be fine, regarding Bamm-Bamm;
