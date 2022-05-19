@@ -9,6 +9,6 @@ if (!open STDIN, "<", $file_name) {
 
 foreach (<>) {
     if (/(\S)\1/) {
-        print;
+        print $1 x 2;
     }
 }
