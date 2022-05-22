@@ -6,9 +6,7 @@ sub age_in_days {
     my $file_name = $_[0] // $_;
 
     if (-e $file_name) {
-        my ($dev, $ino, $mode, $nlink, $uid, $gid, $rdev, $size, $atime, $mtime, $ctime, $blksize, $blocks) = stat($file_name);
-
-        return int ((time - $ctime) / (24 * 60 * 60));
+        return int ((time - (stat($file_name))[10]) / (24 * 60 * 60));
     }
 
     return -1;
