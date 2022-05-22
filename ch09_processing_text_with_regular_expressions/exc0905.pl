@@ -4,10 +4,7 @@ use warnings FATAL => 'all';
 
 sub open_in {
     my $in = $_[0];
-    my $in_fh;
-    if (!open $in_fh, "<", $in) {
-        die "Could not open input file $in: $!";
-    }
+    open my $in_fh, "<", $in or die "Could not open input file $in: $!";
 
     $in_fh;
 }
@@ -19,10 +16,7 @@ sub out_name {
 
 sub open_out {
     my $out = $_[0];
-    my $out_fh;
-    if (!open $out_fh, ">", $out) {
-        die "Could not open output file $out: $!";
-    }
+    open my $out_fh, ">", $out or die "Could not open output file $out: $!";
 
     $out_fh;
 }
@@ -57,12 +51,9 @@ sub add_copyright {
 }
 
 my @to_update;
-
 while (@ARGV) {
     my $in = shift @ARGV;
     push(@to_update, $in) if !contains_copyright($in);
 }
 
-while (@to_update) {
-    add_copyright(pop @to_update);
-}
+add_copyright(pop @to_update) while (@to_update);
