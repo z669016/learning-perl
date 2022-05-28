@@ -15,7 +15,7 @@ if (! @file_list) {
         chomp(my $file_name = <STDIN>);
         last if ($file_name eq "");
 
-        push(@file_list, $file_name);
+        push(@file_list, glob $file_name);
     }
 }
 
