@@ -5,8 +5,6 @@ use warnings FATAL => 'all';
 my $run = 1;
 my %signals;
 
-
-
 sub record_signal {
     my $name = $_[0];
     $signals{$name} += 1;
